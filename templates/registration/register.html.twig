@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <h1>Inscription</h1>
+
+    {% if app.user %}
+        <h3>Vous êtes déjà connecté, impossible de vous inscrire sans vous 
+            <a href="{{ path('app_logout')}}">déconnecter</a>
+        </h3>
+    {% else %}
+        {{ form_start(registrationForm) }}
+            <div>
+                <label for="firstname">Prénom:</label>
+                {{ form_widget(registrationForm.firstname) }}
+                {{ form_errors(registrationForm.firstname) }}
+            </div>
+            <div>
+                <label for="lastname">Nom:</label>
+                {{ form_widget(registrationForm.lastname) }}
+                {{ form_errors(registrationForm.lastname) }}
+            </div>
+            <div>
+                <label for="email">Adresse mail:</label>
+                {{ form_widget(registrationForm.email) }}
+                {{ form_errors(registrationForm.email) }}
+            </div>
+            <div>
+                <label for="plainPassword">Mot de passe:</label>
+                {{ form_widget(registrationForm.plainPassword) }}
+                {{ form_errors(registrationForm.plainPassword) }}
+            </div>
+            <div>
+                <label for="agreeTerms">J'accepte les CGU</label>
+                {{ form_widget(registrationForm.agreeTerms) }}
+                {{ form_errors(registrationForm.agreeTerms) }}
+            </div>
+            
+            
+            
+
+            <button type="submit" class="btn">Register</button>
+        {{ form_end(registrationForm) }}
+    {% endif %}
+
+    
+{% endblock %}
