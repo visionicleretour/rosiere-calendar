@@ -29,6 +29,9 @@ class Event
     #[ORM\Column]
     private ?bool $isAdmin = null;
 
+    #[ORM\Column]
+    private ?bool $isFullDay = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -90,6 +93,18 @@ class Event
     public function setIsAdmin(bool $isAdmin): self
     {
         $this->isAdmin = $isAdmin;
+
+        return $this;
+    }
+
+    public function isIsFullDay(): ?bool
+    {
+        return $this->isFullDay;
+    }
+
+    public function setIsFullDay(bool $isFullDay): self
+    {
+        $this->isFullDay = $isFullDay;
 
         return $this;
     }
