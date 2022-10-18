@@ -3,43 +3,52 @@
 {% block title %}Connexion {% endblock %}
 
 {% block body %}
+    <div class="security-wrapper">
+        {# FORM #}
+        <div class="security-form-wrapper">
+            <div class="security-form" style="max-width: 100%">
+                <h3 class="security-form-title">Connexion</h3>
 
+                {% if app.user %}
+                    <div style="text-align: center">
+                        <h4 class="security-form-already-connected" style="margin-bottom: 5px">Vous êtes déjà connecté ({{ app.user.userIdentifier }}).</h4>
+                        <a href="{{ path('app_logout')}}" class="security-form-disconnect-btn">Se déconnecter</a>
+                    </div>
+                {% else %}
+                    <form method="post" class="login-form">
+                        {% if error %}
+                            <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                        {% endif %}
+                        
+                        <div class="security-form-field-wrapper" style="margin-bottom: 50px">
+                            <label for="inputEmail">Adresse mail</label>
+                            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" autocomplete="email" required autofocus>
+                        </div>
+                        <div class="security-form-field-wrapper" style="margin-bottom: 50px">
+                            <label for="inputPassword">Mot de passe</label>
+                            <input type="password" name="password" id="inputPassword" required>
+                        </div>
 
-    <h1>Connexion</h1>
-    {% if app.user %}
-        <div>
-            <h3>Vous êtes déjà connecté ({{ app.user.userIdentifier }}). 
-                <a href="{{ path('app_logout')}}">Se déconnecter</a>
-            </h3>
+                        <input type="hidden" name="_csrf_token"
+                            value="{{ csrf_token('authenticate') }}"
+                        >
+
+                        <div style="margin-bottom: 50px">
+                            <label style="display: inline-flex">
+                                <input type="checkbox" name="_remember_me" style="margin-right: 8px; margin-top: -2px"> <span style="font-size: 12px">Rester connecté</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="security-form-field-accept-btn">
+                            Connexion
+                        </button>
+                    </form>
+                {% endif %}
+            </div>
         </div>
-    {% else %}
-    <form method="post">
-        {% if error %}
-            <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-        {% endif %}
-        
-        <div>
-            <label for="inputEmail">Adresse mail</label>
-            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" autocomplete="email" required autofocus>
+        {# PHOTO #}
+        <div class="security-photo-wrapper" style="background-image: url('/assets/img/14.jpg')">
+            <div class="security-overlay"></div>
         </div>
-        <div>
-            <label for="inputPassword">Mot de passe</label>
-            <input type="password" name="password" id="inputPassword" required>
-        </div>
-
-        <input type="hidden" name="_csrf_token"
-            value="{{ csrf_token('authenticate') }}"
-        >
-
-        <div>
-            <label>
-                <input type="checkbox" name="_remember_me"> Rester connecté
-            </label>
-        </div>
-
-        <button type="submit">
-            Connexion
-        </button>
-    </form>
-    {% endif %}
+    </div>
 {% endblock %}

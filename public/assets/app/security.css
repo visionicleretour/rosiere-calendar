@@ -1,0 +1,147 @@
+.security-wrapper {
+  display: flex;
+  /* height: 100vh; */
+  height: 100%;
+  width: 100%;
+}
+
+/* PHOTO */
+.security-photo-wrapper {
+  width: 50%;
+  height: 100%;
+  background: url(https://cpmr-islands.org/wp-content/uploads/sites/4/2019/07/Happy-Test-Screen-01-825x510.png)
+    no-repeat center center;
+  background-size: cover;
+  position: relative;
+}
+
+/* FORM */
+.security-form-wrapper {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+.security-form {
+  margin: auto;
+  max-width: 100%;
+}
+.security-form > form {
+  min-width: 450px;
+}
+.security-form-title {
+  font-family: Poppins, Roboto, sans-serif;
+  text-align: center;
+  font-size: 45px;
+  margin-bottom: 35px;
+  letter-spacing: 0.3rem;
+}
+
+.security-form-field-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
+.security-form-field-wrapper > input[type='checkbox'] {
+  width: auto;
+  margin-right: 5px;
+}
+
+.security-form-field-wrapper label {
+  font-family: Poppins, Roboto, sans-serif;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.security-form-field-wrapper input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  font-family: Roboto, sans-serif;
+  box-shadow: 2px 4px 6px rgba(79, 79, 79, 0.15);
+  font-size: 14px;
+}
+
+.security-form-field-name-wrapper {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+.security-form-field-accept-btn {
+  width: 100%;
+  padding: 7px;
+  border: 1px solid #ccc;
+  border-radius: 100px;
+  font-family: Poppins, Roboto, sans-serif;
+  font-size: 18px;
+  background-color: #4169e1;
+  color: #fff;
+  cursor: pointer;
+}
+
+.security-form-already-connected {
+  margin-top: 50px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.security-form-disconnect-btn {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #4169e1;
+  cursor: pointer;
+}
+
+.login-form {
+  min-width: 450px;
+}
+
+.security-overlay {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(65, 105, 225, 0.8);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+@media (max-width: 1000px) {
+  .login-form {
+    min-width: 450px;
+  }
+  .security-photo-wrapper {
+    display: none;
+  }
+  .security-wrapper {
+    flex-direction: column;
+  }
+  .security-form {
+    margin: 40px auto;
+  }
+  .security-photo-wrapper {
+    width: 100%;
+  }
+  .security-form-wrapper {
+    margin: auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 465px) {
+  .login-form {
+    min-width: 100%;
+  }
+  .security-form {
+    max-width: 100%;
+  }
+  .security-form-field-wrapper {
+    width: 100% !important;
+  }
+  .security-form-field-name-wrapper {
+    display: inline-block;
+  }
+}
