@@ -3,46 +3,55 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <h1>Inscription</h1>
+    <div class="security-wrapper">
+        {# PHOTO #}
+        <div class="security-photo-wrapper" style="background-image: url('/assets/img/7.jpg')">
+            <div class="security-overlay"></div>
+        </div>
+        {# FORM #}
+        <div class="security-form-wrapper">
+            <div class="security-form">
+                <h3 class="security-form-title">Inscription</h3>
 
-    {% if app.user %}
-        <h3>Vous êtes déjà connecté, impossible de vous inscrire sans vous 
-            <a href="{{ path('app_logout')}}">déconnecter</a>
-        </h3>
-    {% else %}
-        {{ form_start(registrationForm) }}
-            <div>
-                <label for="firstname">Prénom:</label>
-                {{ form_widget(registrationForm.firstname) }}
-                {{ form_errors(registrationForm.firstname) }}
-            </div>
-            <div>
-                <label for="lastname">Nom:</label>
-                {{ form_widget(registrationForm.lastname) }}
-                {{ form_errors(registrationForm.lastname) }}
-            </div>
-            <div>
-                <label for="email">Adresse mail:</label>
-                {{ form_widget(registrationForm.email) }}
-                {{ form_errors(registrationForm.email) }}
-            </div>
-            <div>
-                <label for="plainPassword">Mot de passe:</label>
-                {{ form_widget(registrationForm.plainPassword) }}
-                {{ form_errors(registrationForm.plainPassword) }}
-            </div>
-            <div>
-                <label for="agreeTerms">J'accepte les CGU</label>
-                {{ form_widget(registrationForm.agreeTerms) }}
-                {{ form_errors(registrationForm.agreeTerms) }}
-            </div>
-            
-            
-            
+                {% if app.user %}
+                    <h4 class="security-form-already-connected">Vous êtes déjà connecté, impossible de vous inscrire sans vous 
+                        <a href="{{ path('app_logout')}}" class="security-form-disconnect-btn">déconnecter</a>
+                    </h4>
+                {% else %}
+                    {{ form_start(registrationForm) }}
+                        <div class="security-form-field-name-wrapper">
+                            <div class="security-form-field-wrapper w-1/2">
+                                <label for="lastname">NOM</label>
+                                {{ form_widget(registrationForm.lastname) }}
+                                {{ form_errors(registrationForm.lastname) }}
+                            </div>
+                            <div class="security-form-field-wrapper w-1/2">
+                                <label for="firstname">Prénom</label>
+                                {{ form_widget(registrationForm.firstname) }}
+                                {{ form_errors(registrationForm.firstname) }}
+                            </div>
+                        </div>
+                        <div class="security-form-field-wrapper">
+                            <label for="email">Email</label>
+                            {{ form_widget(registrationForm.email) }}
+                            {{ form_errors(registrationForm.email) }}
+                        </div>
+                        <div class="security-form-field-wrapper">
+                            <label for="plainPassword">Mot de passe</label>
+                            {{ form_widget(registrationForm.plainPassword) }}
+                            {{ form_errors(registrationForm.plainPassword) }}
+                        </div>
+                        <div class="security-form-field-wrapper" style="display: block; margin: 30px 0px; font-size: 12px">
+                            {{ form_widget(registrationForm.agreeTerms) }}
+                            {{ form_errors(registrationForm.agreeTerms) }}
+                            <label for="agreeTerms" style="font-size: 12px">J'accepte les CGU</label>
+                        </div>
 
-            <button type="submit" class="btn">Register</button>
-        {{ form_end(registrationForm) }}
-    {% endif %}
-
-    
+                        <button type="submit" class="security-form-field-accept-btn">Inscription</button>
+                    {{ form_end(registrationForm) }}
+                {% endif %}
+        
+            </div>
+        </div>
+    </div>
 {% endblock %}
