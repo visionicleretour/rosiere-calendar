@@ -1,0 +1,20 @@
+{
+  "name": "rosiere-calendar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "docker:db": "docker image prune -f && docker-compose up --build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/visionicleretour/rosiere-calendar.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/visionicleretour/rosiere-calendar/issues"
+  },
+  "homepage": "https://github.com/visionicleretour/rosiere-calendar#readme"
+}

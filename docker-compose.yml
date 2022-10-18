@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  database:
+    env_file:
+      - ./.env
+    image: mariadb:latest
+    ports:
+      - '3306:3306'
+    environment:
+      - MARIADB_USER=root
+      - MARIADB_PASSWORD=root
+    volumes: # CHANGE THE LOCAL VOLUME PATH TO YOUR OWN
+      - C:\Users\itoga\Desktop\db-calendar:/var/lib/mysql
+
+volumes:
+  db:
+    driver: local
