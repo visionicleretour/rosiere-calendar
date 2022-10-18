@@ -1,20 +1,28 @@
 {
   "name": "rosiere-calendar",
   "version": "1.0.0",
-  "description": "",
+  "description": "Calendar for the Rosiere website",
   "main": "index.js",
   "scripts": {
-    "docker:db": "docker image prune -f && docker-compose up --build"
+    "docker:db": "docker image prune -f && docker-compose up --build",
+    "release": "git add . && standard-version -a --no-verify",
+    "release:patch": "git add . && standard-version -a --no-verify --release-as patch",
+    "release:minor": "git add . && standard-version -a --no-verify --release-as minor",
+    "release:major": "git add . && standard-version -a --no-verify --release-as major",
+    "release:dry": "git add . && standard-version -a --dry-run --no-verify"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/visionicleretour/rosiere-calendar.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "VISIONIC",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/visionicleretour/rosiere-calendar/issues"
   },
-  "homepage": "https://github.com/visionicleretour/rosiere-calendar#readme"
+  "homepage": "https://github.com/visionicleretour/rosiere-calendar#readme",
+  "devDependencies": {
+    "standard-version": "^9.5.0"
+  }
 }
