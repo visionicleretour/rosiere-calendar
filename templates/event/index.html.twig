@@ -22,6 +22,7 @@
     <br>
     {% if event.createdBy is same as app.user %}
         <a href="{{path('dashboard_edit_event', {'id' : event.id})}}">Modifier l'événement</a>
+        <a href="{{path('dashboard_delete_event', {'id' : event.id})}}">Supprimer l'événement</a>
     {% endif %}
     
     <br>

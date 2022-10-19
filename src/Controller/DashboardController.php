@@ -89,4 +89,24 @@ class DashboardController extends AbstractController
             'form' => $form
         ]);
     }
+
+    #[Route('/dashboard/delete/{id}', name: 'dashboard_delete_event')]
+    public function deleteEvent(Request $request, $id, EntityManagerInterface $em)
+    {
+        $event = $em->getRepository(Event::class)->findOneBy(['id' => $id]);
+
+        $event = ($event->getCreatedBy() == $this->getUser()) ? $event : null;
+        
+        if ($event === null) {
+            $this->addFlash('error', 'Événement introuvable');
+            return $this->redirectToRoute('dashboard');
+        }
+
+        $em->remove($event);
+        $em->flush();
+
+        
+        $this->addFlash('success', 'Événement supprimé');
+        return $this->redirectToRoute('dashboard');
+    }
 }
