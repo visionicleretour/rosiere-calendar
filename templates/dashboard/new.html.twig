@@ -4,36 +4,6 @@
 {% endblock %}
 
 {% block body %}
-	{{form_start(form)}}
-	<div>
-		<label for="title">Titre</label>
-		{{ form_widget(form.title) }}
-		{{ form_errors(form.title) }}
-	</div>
-
-    <div>
-		<label for="description">Description</label>
-		{{ form_widget(form.description) }}
-		{{ form_errors(form.description) }}
-	</div>
-
-	<div>
-		<label for="start">Date de début</label>
-		{{ form_widget(form.start) }}
-		{{ form_errors(form.start) }}
-	</div>
-
-	<div>
-		<label for="end">Date de fin</label>
-		{{ form_widget(form.end) }}
-		{{ form_errors(form.end) }}
-	</div>
-
-	<div>
-		<label for="end">Toute la journée ?</label>
-		{{ form_widget(form.isFullDay) }}
-	</div>
-
-	<button type="submit">Valider</button>
-	{{form_end(form)}}
+    <h1>Créer un événement</h1>
+    {% include "components/form_event.html.twig" %}
 {% endblock %}

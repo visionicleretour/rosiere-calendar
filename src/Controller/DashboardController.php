@@ -55,4 +55,38 @@ class DashboardController extends AbstractController
             'form' => $form
         ]);
     }
+
+    #[Route('/dashboard/edit/{id}', name: 'dashboard_edit_event')]
+    public function editEvent(Request $request, $id, EntityManagerInterface $em)
+    {
+        $event = $em->getRepository(Event::class)->findOneBy(['id' => $id]);
+
+        $event = ($event->getCreatedBy() == $this->getUser()) ? $event : null;
+        
+
+
+        if ($event === null) {
+            $this->addFlash('error', 'Événement introuvable');
+            return $this->redirectToRoute('dashboard');
+        }
+
+        $form = $this->createForm(EventType::class, $event);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+            $event->setCreatedBy($this->getUser());
+            $event->setIsAdmin(in_array('ROLE_ADMIN', $this->getUser()->getRoles()));
+
+            $this->em->persist($event);
+            $this->em->flush();
+
+            $this->addFlash('success', 'Événement modifié');
+            return $this->redirectToRoute('dashboard');
+        }
+
+        return $this->renderForm('dashboard/edit.html.twig', [
+            'form' => $form
+        ]);
+    }
 }
