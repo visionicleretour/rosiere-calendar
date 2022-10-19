@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Event;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
@@ -26,6 +27,9 @@ class EventType extends AbstractType
                         'maxMessage' => 'Votre titre d\'événement doit faire {{ limit }} caractères maximum.'
                     ])
                 ]
+            ])
+            ->add('description', CKEditorType::class, [
+                'config_name' => 'event_config'
             ])
             ->add('start', DateTimeType::class, [
                 'constraints' => [

@@ -1,8 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello DashboardController!{% endblock %}
+{% block title %}Vos événements{% endblock %}
 
 {% block body %}
+
+<h1>Les événements</h1>
+
+<a href="{{path('dashboard_new_event')}}">Créer un événement</a>
 
 {% include "calendar.html.twig" with {'events': events} %}
 
