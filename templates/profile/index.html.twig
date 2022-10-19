@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProfileController!{% endblock %}
+
+{% block body %}
+{{ form_start(form) }}
+    <div>
+        {# L'email est "disabled" donc champs à grisé #}
+        <label for="email">EMAIL</label>
+        {{ form_widget(form.email) }} 
+        {{ form_errors(form.email) }}
+    </div>
+
+    <div>
+        <label for="firstname">PRÉNOM</label>
+        {{ form_widget(form.firstname) }}
+        {{ form_errors(form.firstname) }}
+    </div>
+
+    <div>
+        <label for="lastname">NOM</label>
+        {{ form_widget(form.lastname) }}
+        {{ form_errors(form.lastname) }}
+    </div>
+
+    <button type="submit">Modifier</button>
+{{ form_end(form) }}
+{% endblock %}
