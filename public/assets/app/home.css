@@ -1,0 +1,202 @@
+.home-header {
+  background: url(../img/14.jpg) no-repeat center center;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-header-content {
+  z-index: 100;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  padding: 0px 20px;
+}
+
+.home-header-title,
+.home-header-title > span {
+  font-size: 50px;
+  font-family: Poppins;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+}
+
+.home-header-btn {
+  margin: 100px auto auto auto;
+  padding: 15px 25px;
+  background: #ffff84;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  color: rgba(65, 105, 225, 0.8);
+  font-size: 18px;
+  font-family: Poppins;
+  text-align: center;
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* Next event */
+.home-next-event {
+  background-color: #4169e1;
+  padding: 25px 25px 115px 25px;
+}
+
+.home-next-event-title {
+  margin-bottom: 40px;
+  text-align: center;
+  font-size: 35px;
+  font-family: Poppins;
+  font-weight: 500;
+  color: #ffff84;
+}
+
+.home-next-event-content-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 75px;
+  margin: 0px 100px;
+}
+
+.home-next-event-infos-title {
+  font-size: 35px;
+  font-family: Poppins;
+  font-weight: 500;
+  border-top: 3px solid #ffff84;
+  color: #fff;
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+.home-next-event-infos-description {
+  line-height: 2em;
+}
+
+.home-next-event-image {
+  flex-basis: 50%;
+  width: 100%;
+}
+
+.home-next-event-infos {
+  width: 100%;
+  flex-basis: 50%;
+  color: #fff;
+}
+
+@media screen and (max-width: 1100px) {
+  .home-next-event-content-wrapper {
+    flex-direction: column;
+    gap: 0px;
+    margin: auto;
+    max-width: 500px;
+  }
+
+  .home-next-event-image {
+    flex-basis: 100%;
+    margin-bottom: 50px;
+  }
+
+  .home-next-event-infos {
+    flex-basis: 100%;
+  }
+}
+
+/* Mot du maire */
+
+.home-mot-maire {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 200px;
+  margin: 0px 100px;
+  padding: 100px 25px;
+}
+
+.home-mot-maire-image {
+  width: 300px;
+  height: 400px;
+}
+
+.home-mot-maire-title {
+  font-size: 27px;
+  font-family: Poppins;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.home-mot-maire-description {
+  line-height: 2em;
+  text-align: center;
+}
+
+@media screen and (max-width: 1100px) {
+  .home-mot-maire {
+    flex-direction: column;
+    gap: 0px;
+    margin: auto;
+    max-width: 500px;
+  }
+
+  .home-mot-maire-content-wrapper {
+    /* margin-top: 50px; */
+  }
+
+  .home-mot-maire-image {
+    display: none; /* TODO: Ask */
+    width: 250px;
+    height: 350px;
+  }
+}
+
+/* Slider */
+
+.splide {
+  background-color: #4169e1;
+  width: 100%;
+  height: auto;
+  padding: 85px 125px;
+}
+
+.splide__pagination {
+  bottom: 2.5em;
+}
+
+.splide__pagination__page {
+  transform: scale(2.5);
+  margin-right: 15px;
+  background-color: transparent;
+  border: 1px solid #ffff84;
+}
+
+.splide__arrow {
+  display: none;
+}
+
+.splide__pagination__page.is-active {
+  transform: scale(2.5);
+  margin-right: 15px;
+  border: 1px solid #ffff84;
+  background-color: #ffff84;
+}
+
+.splide__list {
+  display: flex;
+  cursor: grab;
+  gap: 20px;
+}
+
+.splide__slide img {
+  width: 100%;
+}
+
+@media screen and (max-width: 1100px) {
+  .splide {
+    padding: 50px 50px 85px 50px;
+  }
+}

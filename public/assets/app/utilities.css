@@ -1,3 +1,13 @@
 .w-1\/2 {
   width: 50%;
 }
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(65, 105, 225, 0.8);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}

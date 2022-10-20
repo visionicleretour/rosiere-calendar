@@ -1,20 +1,64 @@
+
 {% extends 'base.html.twig' %}
 
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<link rel="stylesheet" href="/assets/app/home.css">
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'D:/dev/rosiere-calendar/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'D:/dev/rosiere-calendar/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
+<script src='/assets/splide-slider/main.js'></script>
+
+<div style="width: 100%; height: 100%">
+    {# Navbar #}
+    {% include 'partials/navbar.html.twig' %}
+    {# Home #}
+    <section class="home-header">
+        {# Content #}
+        <div class="overlay"></div>
+        <div class="home-header-content">
+            <h1 class="home-header-title">Mairie de <span style="color: #FFFF84">Rosière</span> près Troyes</h1>
+            <div class="home-header-btn">Notre calendrier</div>
+        </div>
+    </section>
+    {# Calendar #} {# TODO: Add calendar #}
+    <section class="home-calendar" style="height: 500px">
+    </section>
+    {# Next event #} {# TODO: Make it dynamic #}
+    <section class="home-next-event">
+        <h3 class="home-next-event-title">Prochaine évènement</h3>
+        <div class="home-next-event-content-wrapper">
+            <img src="https://media.istockphoto.com/photos/multi-ethnic-guys-and-girls-taking-selfie-outdoors-with-backlight-picture-id1368965646?b=1&k=20&m=1368965646&s=170667a&w=0&h=9DO-7OKgwO8q7pzwNIb3aq2urlw3DNTmpKQyvvNDWgY=" alt="Next event" class="home-next-event-image">
+            <div class="home-next-event-infos">
+                <h4 class="home-next-event-infos-title">Tombola</h4>
+                <p class="home-next-event-infos-description">At AFQ Tech, we believe in a systematic approach for any project be it complex or simple. We are a group of individuals with a various set of skill set varies from Digital Marketing to IoT/Robotics solutions. </p>
+            </div>
+        </div>
+    </section>
+    {# Mot du maire #}
+    <section class="home-mot-maire">
+        <img class="home-mot-maire-image" src="https://commune-rosieres10.fr/IMG/jpg/photo_m._raymond_2.jpg" alt="Next event">
+        <div class="home-mot-maire-content-wrapper">
+            <h4 class="home-mot-maire-title">Mot du maire</h4>
+            <p class="home-mot-maire-description">At AFQ Tech, we believe in a systematic approach for any project be it complex or simple. We are a group of individuals with a various set of skill set varies from Digital Marketing to IoT/Robotics solutions. We have our dedicated team for your project which uses various methods such as agile Scrum & agile Kanban. We ensure top-notch quality, on-time delivery, and agility for your project.</p>
+        </div>
+    </section>
+    {# Slider #}
+    <section class="splide" aria-label="Splide Basic HTML Example">
+        <div class="splide__track">
+            <ul class="splide__list">
+                <li class="splide__slide"><img src="/assets/img/1.jpg" alt=""/></li>
+                <li class="splide__slide"><img src="/assets/img/7.jpg" alt=""/></li>
+                <li class="splide__slide"><img src="/assets/img/12.jpg" alt=""/></li>
+                <li class="splide__slide"><img src="/assets/img/4.jpg" alt=""/></li>
+                <li class="splide__slide"><img src="/assets/img/15.jpg" alt=""/></li>
+                <li class="splide__slide"><img src="/assets/img/6.jpg" alt=""/></li>
+                <li class="splide__slide"><img src="/assets/img/8.jpg" alt=""/></li>
+                <li class="splide__slide"><img src="/assets/img/11.jpg" alt=""/></li>
+            </ul>
+        </div>
+    </section>
+    {# Footer #}
+    {% include 'partials/footer.html.twig' %}
 </div>
 {% endblock %}

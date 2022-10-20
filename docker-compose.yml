@@ -10,6 +10,7 @@ services:
     environment:
       - MARIADB_USER=root
       - MARIADB_PASSWORD=root
+      - MARIADB_DATABASE=root
     volumes: # CHANGE THE LOCAL VOLUME PATH TO YOUR OWN
       - C:\Users\itoga\Desktop\db-calendar:/var/lib/mysql
 
