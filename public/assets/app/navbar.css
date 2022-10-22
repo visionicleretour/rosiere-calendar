@@ -7,7 +7,11 @@
   justify-content: space-between;
   padding: 20px 25px;
   border-bottom: 1px solid rgba(150, 172, 238, 0.8);
-  background-color: #5f80e3;
+  background-color: transparent;
+}
+
+.navbar-opened {
+  background-color: rgba(65, 105, 225, 1) !important;
 }
 
 .navbar-logo {
@@ -89,6 +93,12 @@
   .navbar-list a {
     font-size: 20px;
     border: none !important;
+  }
+  .navbar-item > a {
+    color: #fff !important;
+  }
+  .navbar-btn {
+    border-color: #fff !important;
   }
   .navbar-desktop-image {
     display: none;

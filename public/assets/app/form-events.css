@@ -1,0 +1,33 @@
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  gap: 2px;
+}
+
+input,
+textarea {
+  padding: 5px;
+}
+
+.is-inline {
+  display: inline-block;
+}
+
+.is-checkbox {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.submit-btn {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #fff;
+  padding: 10px 15px;
+  background-color: #4169e1;
+  border: none;
+  cursor: pointer;
+  float: right;
+}

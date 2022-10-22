@@ -1,32 +1,34 @@
+<link rel="stylesheet" href="/assets/app/form-events.css">
+
 {{form_start(form)}}
-	<div>
+	<div class="input-wrapper">
 		<label for="title">Titre</label>
 		{{ form_widget(form.title) }}
 		{{ form_errors(form.title) }}
 	</div>
 
-    <div>
+	<div class="input-wrapper">
 		<label for="description">Description</label>
 		{{ form_widget(form.description) }}
 		{{ form_errors(form.description) }}
 	</div>
 
-	<div>
+	<div class="input-wrapper">
 		<label for="start">Date de début</label>
 		{{ form_widget(form.start) }}
 		{{ form_errors(form.start) }}
 	</div>
 
-	<div>
+	<div class="input-wrapper">
 		<label for="end">Date de fin</label>
 		{{ form_widget(form.end) }}
 		{{ form_errors(form.end) }}
 	</div>
 
-	<div>
+	<div class="input-wrapper is-inline is-checkbox">
 		<label for="end">Toute la journée ?</label>
 		{{ form_widget(form.isFullDay) }}
 	</div>
-
-	<button type="submit">Valider</button>
+	<br />
+	<button type="submit" class="submit-btn">Valider</button>
 {{form_end(form)}}

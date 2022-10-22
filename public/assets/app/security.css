@@ -33,6 +33,7 @@
   text-align: center;
   font-size: 45px;
   margin-bottom: 35px;
+  margin-top: 30px;
   letter-spacing: 0.3rem;
 }
 
@@ -99,7 +100,27 @@
   min-width: 450px;
 }
 
+.navbar-list .navbar-item > a {
+  color: #fff;
+  border-color: #ffff84;
+}
+
+.navbar-btn {
+  color: #fff;
+  border-color: #fff;
+}
+
 @media (max-width: 1000px) {
+  .navbar-list .navbar-item > a {
+    color: #000;
+    border-color: #000;
+  }
+
+  .navbar-btn {
+    color: #000 !important;
+    border-color: #000 !important;
+  }
+
   .login-form {
     min-width: 450px;
   }

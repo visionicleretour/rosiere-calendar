@@ -1,3 +1,4 @@
+
 {% extends 'base.html.twig' %}
 
 {% block title %}Connexion {% endblock %}
@@ -5,7 +6,15 @@
 {% block body %}
     <link rel="stylesheet" href="/assets/app/security.css">
 
+    {# <style>
+        .navbar-btn{
+            color: #000 !important;
+        }
+    </style> #}
+
     <div class="security-wrapper">
+        {# Navbar #}
+        {% include 'partials/navbar.html.twig' %}
         {# FORM #}
         <div class="security-form-wrapper">
             <div class="security-form" style="max-width: 100%">

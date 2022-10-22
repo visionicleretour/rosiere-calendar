@@ -1,6 +1,7 @@
 .home-header {
-  background: url(../img/14.jpg) no-repeat center center;
+  background: url(../img/18.jpg) no-repeat center center;
   background-size: cover;
+  background-position: 0px 0px;
   height: 100%;
   width: 100%;
   display: flex;

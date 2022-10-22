@@ -2,8 +2,10 @@
     addEventListener('DOMContentLoaded', (event) => {
         const hamburger = document.querySelector('.hamburger');
         hamburger.addEventListener('click', (event) => {
-            const navbar = document.querySelector('.navbar-content');
-            navbar.classList.toggle('navbar-content--open');
+            const navbarContent = document.querySelector('.navbar-content');
+            const navbar = document.querySelector('.navbar');
+            navbarContent.classList.toggle('navbar-content--open');
+            navbar.classList.toggle('navbar-opened');
         });
     });
 </script>
@@ -11,34 +13,101 @@
 <link rel="stylesheet" href="/assets/app/navbar.css">
 
 {# TODO: Add links #}
+{% if app.request.pathinfo == '/connexion' %}
+  <nav class="navbar" style="border: none">
+    <div class="navbar-logo">
+      <img class="navbar-desktop-image" src="/assets/img/logovisionic.png" alt="Logo" width="50px" /> {# TODO: Ask #}
+      <img class="navbar-mobile-image" src="/assets/img/logovisionic.png" alt="Logo" width="50px" /> {# TODO: Ask #}
+    </div>
+    <div class="navbar-content">
+      <div class="navbar-list">
+        <div class="navbar-item">
+          <a href="#" style="border-top: 3px solid #ffff84; margin: 0px">Accueil</a>
+        </div>
+        <div class="navbar-item">
+          <a href="#">Calendrier</a>
+        </div>
+        <div class="navbar-item">
+          <a href="#">Connexion</a>
+        </div>
+      </div>
+      <div>
+        <div class="navbar-item ">
+          <a href="#" class="navbar-btn">Inscription</a>
+        </div>
+      </div>
+    </div>
+    <div class="hamburger">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1024px-Hamburger_icon.svg.png" 
+        alt="menu"
+        class="hamburger-icon"
+        width="50px" 
+      />
+    </div>
+  </nav>
+{% elseif app.request.pathinfo != '/' %} {# Not homepage #}
+  <nav class="navbar" style="border: none">
+    <div class="navbar-logo">
+      <img class="navbar-desktop-image" src="/assets/img/logovisionic.png" alt="Logo" width="50px" /> {# TODO: Ask #}
+      <img class="navbar-mobile-image" src="/assets/img/logovisionic.png" alt="Logo" width="50px" /> {# TODO: Ask #}
+    </div>
+    <div class="navbar-content">
+      <div class="navbar-list">
+        <div class="navbar-item">
+          <a href="#" style="border-top: 3px solid #000; margin: 0px; color: #000">Accueil</a>
+        </div>
+        <div class="navbar-item">
+          <a href="#" style="color: #000">Calendrier</a>
+        </div>
+        <div class="navbar-item">
+          <a href="#" style="color: #000">Connexion</a>
+        </div>
+      </div>
+      <div>
+        <div class="navbar-item ">
+          <a href="#" class="navbar-btn" style="border-color: #000; color: #000">Inscription</a>
+        </div>
+      </div>
+    </div>
+    <div class="hamburger">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1024px-Hamburger_icon.svg.png" 
+        alt="menu"
+        class="hamburger-icon"
+        width="50px" 
+      />
+    </div>
+  </nav>
+
+{% else %}
 <nav class="navbar">
-  <div class="navbar-logo">
-    <img class="navbar-desktop-image" src="/assets/img/logovisionic.png" alt="Logo" width="50px" /> {# TODO: Ask #}
-    <img class="navbar-mobile-image" src="/assets/img/logovisionic.png" alt="Logo" width="50px" /> {# TODO: Ask #}
-  </div>
-  <div class="navbar-content">
-    <div class="navbar-list">
-      <div class="navbar-item">
-        <a href="#" style="border-top: 3px solid #ffff84; margin: 0px">Accueil</a>
+    <div class="navbar-logo">
+      <img class="navbar-desktop-image" src="/assets/img/logovisionic.png" alt="Logo" width="50px" /> {# TODO: Ask #}
+      <img class="navbar-mobile-image" src="/assets/img/logovisionic.png" alt="Logo" width="50px" /> {# TODO: Ask #}
+    </div>
+    <div class="navbar-content">
+      <div class="navbar-list">
+        <div class="navbar-item">
+          <a href="#" style="border-top: 3px solid #ffff84; margin: 0px">Accueil</a>
+        </div>
+        <div class="navbar-item">
+          <a href="#">Calendrier</a>
+        </div>
+        <div class="navbar-item">
+          <a href="#">Connexion</a>
+        </div>
       </div>
-      <div class="navbar-item">
-        <a href="#">Calendrier</a>
-      </div>
-      <div class="navbar-item">
-        <a href="#">Connexion</a>
+      <div>
+        <div class="navbar-item ">
+          <a href="#" class="navbar-btn">Inscription</a>
+        </div>
       </div>
     </div>
-    <div>
-      <div class="navbar-item ">
-        <a href="#" class="navbar-btn">Inscription</a>
-      </div>
+    <div class="hamburger">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1024px-Hamburger_icon.svg.png" 
+        alt="menu"
+        class="hamburger-icon"
+        width="50px" 
+      />
     </div>
-  </div>
-  <div class="hamburger">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1024px-Hamburger_icon.svg.png" 
-      alt="menu"
-      class="hamburger-icon"
-      width="50px" 
-    />
-  </div>
-</nav>
+  </nav>
+{% endif %}
