@@ -4,27 +4,35 @@
 
 {% block body %}
 
-    <h1>{{ event.title }}</h1>
+    <link rel="stylesheet" href="/assets/app/events.css">
 
-    {% if event.isFullDay %}
-        <span>Date: toute la journée du {{ event.start|date("d/m/Y") }}</span>
-    {% else %}
-        <span>Date: du {{ event.start|date("d/m/Y h:i") }} au {{ event.end|date("d/m/Y h:i") }}</span>
-    {% endif %}
+    {# Navbar #}
+    {% include 'partials/navbar.html.twig' %}
+    <div class="events">
+        <div class="events-wrapper">
+            <h1>{{ event.title }}</h1>
 
-    <br>
-    {% if event.isAdmin %}
-        <span>Événement de la mairie</span>
-    {% else %}
-        <span>Événement de votre calendrier</span>
-    {% endif %}
+            {% if event.isFullDay %}
+                <span>Date: toute la journée du {{ event.start|date("d/m/Y") }}</span>
+            {% else %}
+                <span>Date: du {{ event.start|date("d/m/Y h:i") }} au {{ event.end|date("d/m/Y h:i") }}</span>
+            {% endif %}
 
-    <br>
-    {% if event.createdBy is same as app.user %}
-        <a href="{{path('dashboard_edit_event', {'id' : event.id})}}">Modifier l'événement</a>
-        <a href="{{path('dashboard_delete_event', {'id' : event.id})}}">Supprimer l'événement</a>
-    {% endif %}
-    
-    <br>
-    {{ event.description|raw }}
+            <br>
+            {% if event.isAdmin %}
+                <span>Événement de la mairie</span>
+            {% else %}
+                <span>Événement de votre calendrier</span>
+            {% endif %}
+
+            <br>
+            {% if event.createdBy is same as app.user %}
+                <a href="{{path('dashboard_edit_event', {'id' : event.id})}}">Modifier l'événement</a>
+                <a href="{{path('dashboard_delete_event', {'id' : event.id})}}">Supprimer l'événement</a>
+            {% endif %}
+            
+            <br>
+            {{ event.description|raw }}
+        </div>
+    </div>
 {% endblock %}
