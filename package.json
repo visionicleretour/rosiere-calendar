@@ -4,7 +4,7 @@
   "description": "Calendar for the Rosiere website",
   "main": "index.js",
   "scripts": {
-    "docker:db": "docker image prune -f && docker-compose up --build",
+    "docker:start": "docker image prune -f && docker-compose up --build",
     "release": "git add . && standard-version -a --no-verify",
     "release:patch": "git add . && standard-version -a --no-verify --release-as patch",
     "release:minor": "git add . && standard-version -a --no-verify --release-as minor",
