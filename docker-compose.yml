@@ -4,25 +4,20 @@ services:
   app-php:
     container_name: app-api
     build:
-      context: ./
+      context: .
     volumes:
-      - .:/var/www/html
+      - .:/var/www/html/rosieres
     ports:
       - 80:80
     depends_on:
       - database
     environment:
-      - DB_HOST=database
-      - DB_NAME=root
-      - DB_USER=root
-      - DB_PASS=root
-      - DB_PORT=3306
-      - DB_DRIVER=mysql
-      - DB_CHARSET=utf8
-      - DB_ENGINE=InnoDB
+      - DATABASE_URL=mysql://root:root@database:3306/root
       - APP_KEY=base64:Y9Z7Z7Z7Z7Z7Z7Z7Z7Z7Z7Z7Z7Z7Z7Z7Z7Z7Z7Z7Z7A=
       - APP_DEBUG=true
-      - APP_URL=http://localhost:8000
+      - APP_URL=http://localhost/
+    env_file:
+      - ./.env
 
   database:
     container_name: mariadb
