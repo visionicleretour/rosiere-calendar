@@ -22,7 +22,10 @@
         </div>
     </section>
     {# Calendar #} {# TODO: Add calendar #}
-    <section class="home-calendar" style="height: 500px">
+    <section class="home-calendar" style="padding-bottom: 50px;">
+		<div class="home-next-event-content-wrapper">
+        {% include "calendar.html.twig" with {'events': events} %}
+		</div>
     </section>
     {# Next event #} {# TODO: Make it dynamic #}
     <section class="home-next-event">
