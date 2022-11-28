@@ -1,10 +1,29 @@
 version: '3'
 
 services:
-  database:
+  app-php:
+    container_name: app-api
+    build:
+      context: .
+    volumes:
+      - .:/var/www/html/rosieres
+    ports:
+      - 80:80
+    depends_on:
+      - database
+    environment:
+      - DATABASE_URL=mysql://root:root@database:3306/root
+      - APP_KEY=base64:Y9Z7Z7Z7Z7Z7Z7Z7Z7Z7Z7Z7Z7Z7Z7Z7Z7Z7Z7Z7Z7A=
+      - APP_DEBUG=true
+      - APP_URL=http://localhost/
     env_file:
       - ./.env
-    image: mariadb:latest
+
+  database:
+    container_name: mariadb
+    env_file:
+      - ./.env
+    image: mariadb:10.9
     ports:
       - '3306:3306'
     environment:
@@ -13,7 +32,9 @@ services:
       - MARIADB_DATABASE=root
     volumes: # CHANGE THE LOCAL VOLUME PATH TO YOUR OWN
       - C:\Users\itoga\Desktop\db-calendar:/var/lib/mysql
+    logging:
+      driver: none
 
 volumes:
-  db:
+  rosieres-calendar:
     driver: local
