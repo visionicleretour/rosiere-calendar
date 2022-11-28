@@ -15,7 +15,7 @@ class EventService
         $this->urlGenerator = $urlGenerator;
     }
 
-    public function getEventsForCalendar(?UserInterface $user)
+    public function getEventsForCalendar(?UserInterface $user = null)
     {
         $events = $this->em->getRepository(Event::class)->findForUser($user);
 

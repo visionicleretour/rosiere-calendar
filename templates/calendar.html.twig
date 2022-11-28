@@ -1,60 +1,37 @@
-<link href='/assets/fullcalendar/main.css' rel='stylesheet' />
+<link href='/assets/fullcalendar/main.css' rel='stylesheet'/>
 <script src='/assets/fullcalendar/main.js'></script>
 
 <script>
 
-document.addEventListener('DOMContentLoaded', function() {
-  var calendarEl = document.getElementById('calendar');
+	document.addEventListener('DOMContentLoaded', function () {
+var calendarEl = document.getElementById('calendar');
 
-  var calendar = new FullCalendar.Calendar(calendarEl, {
-    expandRows: true,
-    locale: 'fr',
-    headerToolbar: {
-      left: 'prev,next today',
-      center: 'title',
-      right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
-    },
-    initialView: 'dayGridMonth',
-    initialDate: '2022-10-12',
-    navLinks: true,
-    editable: false,
-    selectable: true,
-    nowIndicator: true,
-    events: {{events|raw}}
-    
-  });
+var calendar = new FullCalendar.Calendar(calendarEl, {
+expandRows: true,
+locale: 'fr',
+headerToolbar: {
+left: 'prev,next today',
+center: 'title',
+right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+},
+initialView: window.innerWidth > 650 ? 'dayGridMonth' : 'timeGridDay',
+initialDate: (new Date()).toISOString().split('T')[0],
+navLinks: true,
+editable: false,
+selectable: true,
+nowIndicator: true,
+events: {{ events|raw }}
 
-  calendar.render();
 });
 
+calendar.render();
+});
 </script>
 <style>
-
-html, body {
-  overflow: hidden; /* don't do scrollbars */
-  font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
-  font-size: 14px;
-}
-
-#calendar-container {
-  display: block;
-  min-width: 100%;
-  min-height: 100%;
-}
-
-.fc-header-toolbar {
-  /*
-  the calendar will be butting up against the edges,
-  but let's scoot in the header's buttons
-  */
-  padding-top: 1em;
-  padding-left: 1em;
-  padding-right: 1em;
-}
 
 </style>
 
 
 <div id='calendar-container'>
-    <div id='calendar'></div>
+	<div id='calendar'></div>
 </div>

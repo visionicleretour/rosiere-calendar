@@ -26,7 +26,7 @@
   max-width: 100%;
 }
 .security-form > form {
-  min-width: 450px;
+  min-width: 350px;
 }
 .security-form-title {
   font-family: Poppins, Roboto, sans-serif;
@@ -97,7 +97,7 @@
 }
 
 .login-form {
-  min-width: 450px;
+  min-width: 350px;
 }
 
 .navbar-list .navbar-item > a {
@@ -122,7 +122,7 @@
   }
 
   .login-form {
-    min-width: 450px;
+    min-width: 350px;
   }
   .security-photo-wrapper {
     display: none;

@@ -41,6 +41,43 @@
   display: inline-block;
 }
 
+/* Calendar */
+
+#calendar-container {
+  display: block;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+#calendar > div:last-child {
+  height: 500px !important;
+}
+
+.fc-header-toolbar {
+  /*
+the calendar will be butting up against the edges,
+but let's scoot in the header's buttons
+*/
+  padding-top: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.home-calendar-wrapper {
+  padding: 20px 20px 50px 20px;
+}
+
+@media screen and (min-width: 650px) {
+  .home-calendar-wrapper {
+    padding: 20px 50px 50px 50px;
+  }
+}
+
+.fc-header-toolbar {
+  flex-direction: column;
+  gap: 10px;
+}
+
 /* Next event */
 .home-next-event {
   background-color: #4169e1;

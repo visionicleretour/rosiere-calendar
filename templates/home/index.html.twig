@@ -1,7 +1,7 @@
 
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Page d'accueil{% endblock %}
 
 {% block body %}
 
@@ -22,7 +22,10 @@
         </div>
     </section>
     {# Calendar #} {# TODO: Add calendar #}
-    <section class="home-calendar" style="height: 500px">
+    <section class="home-calendar">
+		<div class="home-calendar-wrapper">
+        {% include "calendar.html.twig" with {'events': events} %}
+		</div>
     </section>
     {# Next event #} {# TODO: Make it dynamic #}
     <section class="home-next-event">
