@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BlogController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 35px auto; max-width: 1400px; width: 95%; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div style="background-color: rgba(65, 105, 225, 1); height:90px;">
+    {% include 'partials/navbar.html.twig' %}
+</div>
+
+<div class="example-wrapper">
+    <h1>{{ article.title }} </h1>
+    <span> {{article.createdAt|date("d/m/Y")}} </span>
+    <hr>
+
+    {{article.content|raw}}
+</div>
+{% endblock %}

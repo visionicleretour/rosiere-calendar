@@ -15,7 +15,7 @@ center: 'title',
 right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
 },
 initialView: 'dayGridMonth',
-initialDate: '2022-10-12',
+initialDate: (new Date()).toISOString().split('T')[0],
 navLinks: true,
 editable: false,
 selectable: true,
