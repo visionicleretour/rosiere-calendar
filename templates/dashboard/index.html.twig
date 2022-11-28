@@ -7,10 +7,62 @@
     {% include 'partials/navbar.html.twig' %}
 </div>
 
-<h1>Les événements</h1>
+<h3 class="dashboard-title">Les événements</h3>
 
-<a href="{{path('dashboard_new_event')}}">Créer un événement</a>
+<div class="dashboard-bar">
+    <a href="{{path('dashboard_new_event')}}" class="dashboard-button">Créer un événement</a>
+</div>
 
+<div class="dashboard-calendar-wrapper">
 {% include "calendar.html.twig" with {'events': events} %}
+</div>
+
+<style>
+    .dashboard-title {
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-size: 30px;
+        font-weight: bold;
+    }
+    .dashboard-bar{
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .dashboard-button{
+        display: inline-block;
+        text-decoration: none;
+        color: white;
+        background-color: rgba(65, 105, 225, 1);
+        padding: 10px;
+        border-radius: 5px;
+        margin-right: 50px;
+    }
+    .dashboard-calendar-wrapper{
+        padding: 10px 50px;
+        padding-bottom: 50px;
+        height: 100%;
+    }
+    #calendar-container, #calendar{
+        height: 100%;
+    }
+    @media (max-width: 768px) {
+        .dashboard-calendar-wrapper{
+            padding: 10px 20px;
+        }
+        .fc-header-toolbar {
+            flex-direction: column;
+            gap: 10px;
+        }
+        .dashboard-bar{
+            justify-content: center;
+        }
+        .dashboard-button{
+            margin-right: 0;
+        }
+    }
+</style>
 
 {% endblock %}

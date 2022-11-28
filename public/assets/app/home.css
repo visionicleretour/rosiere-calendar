@@ -28,6 +28,7 @@
 }
 
 .home-header-btn {
+  text-decoration: none;
   margin: 100px auto auto auto;
   padding: 15px 25px;
   background: #ffff84;
