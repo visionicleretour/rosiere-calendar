@@ -12,6 +12,7 @@
 
         <link rel="stylesheet" href="/assets/app/styles.css">
         <link rel="stylesheet" href="/assets/app/utilities.css">
+        <link rel="stylesheet" href="/assets/app/base.css">
 
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
@@ -24,18 +25,43 @@
     </head>
     <body>
         {% for message in app.flashes('success') %}
-            <div class="alert alert-success">
-                {{ message }}
+            <div class="popup-alert">
+                <script>
+                    const html = document.querySelector('html');
+                    html.style.overflow = 'hidden';
+                </script>
+                <div class="alert alert-success">
+                    <h4>Confirmation</h4>
+                    <p>{{ message }}</p>
+                    <div onclick="closePopup()" class="btn">Fermer</div>
+                </div>
+            </div>
+        {% endfor %}
+        
+        {% for message in app.flashes('error') %}
+            <div class="popup-alert">
+                <script>
+                    const html = document.querySelector('html');
+                    html.style.overflow = 'hidden';
+                </script>
+                <div class="alert alert-error">
+                    <h4>Erreur</h4>
+                    <p>{{ message }}</p>
+                    <div onclick="closePopup()" class="btn">Fermer</div>
+                </div>
             </div>
         {% endfor %}
 
-        {% for message in app.flashes('error') %}
-            <div class="alert alert-error">
-                {{ message }}
-            </div>
-        {% endfor %}
         {% block body %}
         
         {% endblock %}
     </body>
+    <script>
+        const closePopup = () => {
+            const popup = document.querySelector('.popup-alert');
+            popup.style.display = 'none';
+            const html = document.querySelector('html');
+            html.style.overflow = 'auto';
+        }
+    </script>
 </html>
