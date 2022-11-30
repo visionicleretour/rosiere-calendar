@@ -1,56 +1,53 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello BlogController!{% endblock %}
+{% block title %}Blog{% endblock %}
 
 {% block body %}
+<link rel="stylesheet" href="/assets/app/blog.css">
 <style>
     * {
        box-sizing: border-box; 
     }
-    .example-wrapper {
-        margin: 1em auto;
-        max-width: 800px;
-        width: 95%;
-        font: 18px/1.5 sans-serif;
-    }
-
-    .example-wrapper code {
-        background: #F5F5F5;
-        padding: 2px 6px;
-    }
-
-    a {
-        text-decoration: none;
-        color: black;
-    }
-
-    .card {
-        text-decoration: none;
-        border: 1px solid rgba(150, 172, 238, 0.8);
-        margin-bottom: 2%;
-        padding: 12px 24px;
-    }
-
-    .card h3 {
-        font-size: 2em;
-    }
 </style>
 
-<div style="background-color: rgba(65, 105, 225, 1); height:90px;">
+<div style="position: absolute; top: 0; right: 0, height:90px; width: 100%">
     {% include 'partials/navbar.html.twig' %}
+</div>
+<div class="blog-header">
+    <h3 class="blog-title">Le <span>blog</span> de la mairie</h3>
 </div>
 
 <div class="example-wrapper">
-    <h1>Tous nos articles</h1>
+    <h3 class="blog-last-actus-title">La dernière actualité</h3>
 
-    {% for article in articles %}
-    <a href='{{ path("app_see_article", {"id": article.id})}}'>
-        <div class="card">
-            <h3> {{article.title}} </h3>
-            <span> Par {{article.author.firstname}} le {{article.createdAt|date("d/m/Y")}} </span>
+    <div class="blog-last-actus-wrapper">
+        <div class="blog-last-actus-img">
+            <img src="https://images.prismic.io/mystique/5d7c09b9-40e5-4254-ae1c-2c1cb59aa898_IMG3.jpg?auto=compress,format" alt="actualite1">
         </div>
-    </a>
+        <div class="blog-last-actus-content">
+            <h4>{{articles|first.title}}</h4>
+            <p>{{articles|first.content}}</p>
+            <a href='{{ path("app_see_article", {"id": articles|first.id})}}'>Lire plus</a>
+        </div>
+    </div>
 
-    {% endfor %}
+    <div class="blog-articles-wrapper">
+        {% for article in articles|slice(1) %}
+        {# <a href='{{ path("app_see_article", {"id": article.id})}}'> #}
+            <div class="blog-card-wrapper">
+                <div class="blog-card-img">
+                    <img src="https://images.prismic.io/mystique/5d7c09b9-40e5-4254-ae1c-2c1cb59aa898_IMG3.jpg?auto=compress,format" alt="actualite1">
+                </div>
+                <div class="blog-card-content">
+                    <h5 class="blog-card-title"> {{article.title}} </h5>
+                    <p class="blog-card-text"> {{article.content}} </p>
+                    {# <span class="blog-card-date"> Par {{article.author.firstname}} le {{article.createdAt|date("d/m/Y")}} </span> #}
+                    <a href='{{ path("app_see_article", {"id": article.id})}}' class="blog-card-link">Lire plus</a>
+                </div>
+            </div>
+        {# </a> #}
+        {% endfor %}
+    </div>
+
 </div>
 {% endblock %}

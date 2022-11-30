@@ -2,7 +2,7 @@
 
 {% block title %}Créer un article{% endblock %}
 
-{% block body %}
+{# {% block body %}
 <link rel="stylesheet" href="/assets/app/form-events.css">
 
 <div style="background-color: rgba(65, 105, 225, 1); height:90px;">
@@ -29,4 +29,46 @@
     <input type="submit" value="Créer l'article" class="submit-btn">
     {{ form_end(form)}}
 </div>
+{% endblock %} #}
+
+{% block body %}
+
+    <link rel="stylesheet" href="/assets/app/blog-form.css">
+
+    {# Navbar #}
+    {% include 'partials/navbar.html.twig' %}
+
+    <div class="blog">
+        <div class="blog-wrapper">
+            <h3 class="blog-title">Création d'un article</h3>
+        
+                <div class="blog-infos-wrapper">
+                    <div class="blog-info-wrapper">
+                        {# L'email est "disabled" donc champs à grisé #}
+                        <label for="email" class="blog-label">Titre:</label>
+                        <input type="text" id="email" name="email" class="blog-input" value="">
+                    </div>
+                    
+                    <div class="blog-info-wrapper">
+                        <label for="firstname" class="blog-label">Image:</label>
+                        <input style="width: 100%" type="file" id="image" class="blog-input" name="image" accept="image/png, image/jpeg">
+                    </div>
+                    
+                    <div class="blog-info-wrapper">
+                        <label for="lastname" class="blog-label">Contenu:</label>
+                        <textarea name="content" id="content" cols="30" rows="10" class="blog-textarea" style="padding: 5px;"></textarea>
+                    </div>
+                </div>
+        
+                <div class="blog-buttons-wrapper">
+                    {# TODO: Ask #}
+                    {# {% for message in app.flashes('success') %}
+                        <div class="alert alert-success">
+                            {{ message }}
+                        </div>
+                    {% endfor %} #}
+                    <button type="submit">Créer</button>
+                </div>
+        </div>
+    </div>
 {% endblock %}
