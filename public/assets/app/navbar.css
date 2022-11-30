@@ -9,6 +9,12 @@
   /* border-bottom: 1px solid rgba(150, 172, 238, 0.8); */
   background-color: transparent;
 }
+#register-screen nav .navbar-content a {
+  color: black;
+}
+#register-screen > nav > .navbar-content > div:last-child a:last-child {
+  border: 1px solid black;
+}
 
 .navbar-opened {
   background-color: rgba(65, 105, 225, 1) !important;
