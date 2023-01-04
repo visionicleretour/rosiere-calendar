@@ -1,3 +1,5 @@
+
+
 .input-wrapper {
   display: flex;
   flex-direction: column;
@@ -29,4 +31,9 @@ textarea {
   border: none;
   cursor: pointer;
   float: right;
+}
+
+input, textarea {
+  width: 100%;
+  margin-bottom: 20px;
 }
