@@ -111,3 +111,25 @@
     cursor: pointer;
   }
 }
+
+.toast {
+  z-index: 10000000;
+  background: white;
+  border: 1px solid darkgray;
+  border-radius: 11rem;
+  position: absolute;
+  padding: 12px 18px;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.toast button {
+  background: white;
+  border: 1px solid darkgray;
+  border-radius: 11rem;
+  padding: 4px;
+  cursor: pointer;
+}

@@ -44,7 +44,7 @@
 /* Next event */
 .home-next-event {
   background-color: #4169e1;
-  padding: 25px 25px 115px 25px;
+  color: white!important;
 }
 
 .home-next-event-title {

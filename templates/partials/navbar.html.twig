@@ -17,9 +17,8 @@
 {% if app.user %}
 <nav class="navbar">
     <div class="navbar-logo">
-        <img class="navbar-desktop-image" src="/assets/img/logovisionic.png" alt="Logo" width="50px" />
+        <a href="/" style="color: white; text-decoration: none;"><h1 style="color: white; text-decoration: none;">Rosière</h1></a>
         {# TODO: Ask #}
-        <img class="navbar-mobile-image" src="/assets/img/logovisionic.png" alt="Logo" width="50px" />
         {# TODO: Ask #}
     </div>
     <div class="navbar-content">
@@ -35,9 +34,12 @@
                 <a href="{{path('app_blog_admin')}}">Admin blog</a>
             </div>
             {% endif %}
-            
+            <div class="navbar-item ">
+                <a href="{{path('app_logout')}}">Déconnexion</a>
+            </div>
         </div>
         <div>
+        
             <div class="navbar-item ">
                 <a href="{{path('dashboard')}}" class="navbar-btn">Dashboard</a>
             </div>
@@ -51,9 +53,8 @@
 {% else %}
 <nav class="navbar">
     <div class="navbar-logo">
-        <img class="navbar-desktop-image" src="/assets/img/logovisionic.png" alt="Logo" width="50px" />
+        <a href="/" style="color: white; text-decoration: none;"><h1 style="color: white; text-decoration: none;">Rosière</h1></a>
         {# TODO: Ask #}
-        <img class="navbar-mobile-image" src="/assets/img/logovisionic.png" alt="Logo" width="50px" />
         {# TODO: Ask #}
     </div>
     <div class="navbar-content">
@@ -80,3 +81,34 @@
     </div>
 </nav>
 {% endif %}
+
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+{% for message in app.flashes('success') %}
+	<div class="toast align-items-center fade show success" role="alert" aria-live="assertive" aria-atomic="true">
+		<div class="icon me-4">
+			<i class="fi fi-rr-badge-check d-flex"></i>
+		</div>
+		<div>
+			<h5 class="fw-bold mb-1">Succès</h5>
+			<p class="text-muted mb-0">
+				{{message}}
+			</p>
+		</div>
+		<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close" onclick="this.parentNode.style.display = 'none'">X</button>
+	</div>
+{% endfor %}
+
+{% for message in app.flashes('error') %}
+	<div class="toast align-items-center fade show erro" role="alert" aria-live="assertive" aria-atomic="true">
+		div class="icon me-4">
+		<i class="fi fi-rr-badge-check d-flex"></i>
+	</div>
+	<div>
+		<h5 class="fw-bold mb-1">Succès</h5>
+		<p class="text-muted mb-0">
+			{{message}}
+		</p>
+	</div>
+	<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close" onclick="this.parentNode.style.display = 'none'">X</button>
+</div>{% endfor %}
+

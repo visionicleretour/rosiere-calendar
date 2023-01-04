@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier un article{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="/assets/app/form-events.css">
+
+<div style="background-color: rgba(65, 105, 225, 1); height:90px;">
+    {% include 'partials/navbar.html.twig' %}
+</div>
+
+<div class="example-wrapper">
+    <h1>Modifier l'article</h1>
+
+    {{ form_start(form, {'attr': {'class': 'input-wrapper'}})}}
+    <div class="security-form-field-wrapper">
+        <label for="title">Titre</label>
+
+        {{form_widget(form.title)}}
+        {{ form_errors(form.title) }}
+    </div>
+
+    <div class="security-form-field-wrapper">
+        <label for="content">Contenu</label>
+        {{form_widget(form.content)}}
+        {{ form_errors(form.content) }}
+    </div>
+
+    <input type="submit" value="Modifier l'article" class="submit-btn">
+    {{ form_end(form)}}
+</div>
+{% endblock %}

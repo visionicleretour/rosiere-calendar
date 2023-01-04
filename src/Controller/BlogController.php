@@ -43,6 +43,18 @@ class BlogController extends AbstractController
     #[Route('/admin/blog', name: 'app_blog_admin')]
     public function indexAdmin(Request $request, EntityManagerInterface $em): Response
     {
+        $articles = $em->getRepository(Article::class)->findAll();
+
+        $articles = array_reverse($articles);
+        
+        return $this->render('blog/index_admin.html.twig', [
+            'articles' => $articles
+        ]);
+    }
+
+    #[Route('/admin/blog/nouveau', name: 'app_blog_admin_new')]
+    public function nouveauBlogAdmin(Request $request, EntityManagerInterface $em): Response
+    {
         $article = new Article();
 
         $form = $this->createForm(ArticleType::class, $article);
@@ -65,5 +77,56 @@ class BlogController extends AbstractController
         return $this->renderForm('blog/new.html.twig', [
             'form' => $form
         ]);
+    }
+
+    #[Route('/admin/blog/modifier/{id}', name: 'app_blog_admin_edit')]
+    public function editBlogAdmin(int $id, Request $request, EntityManagerInterface $em): Response
+    {
+        $article = $em->getRepository(Article::class)->find($id);
+
+        if (empty($article)) {
+            $this->addFlash('error', 'Article introuvable');
+            return $this->redirectToRoute('app_blog_admin');
+        }
+
+        $form = $this->createForm(ArticleType::class, $article);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+            $article->setCreatedAt(new DateTimeImmutable());
+            $article->setAuthor($this->getUser());
+
+            $em->persist($article);
+            $em->flush();
+
+            $this->addFlash('success', 'Votre article a bien été modifié');
+
+            return $this->redirectToRoute('app_see_article', ['id' => $article->getId()]);
+        }
+
+
+        return $this->renderForm('blog/new.html.twig', [
+            'form' => $form
+        ]);
+    }
+
+    #[Route('/admin/blog/supprimer/{id}', name: 'app_blog_admin_delete')]
+    public function deleteBlogAdmin(int $id, Request $request, EntityManagerInterface $em): Response
+    {
+        $article = $em->getRepository(Article::class)->find($id);
+
+        if (empty($article)) {
+            $this->addFlash('error', 'Article introuvable');
+            return $this->redirectToRoute('app_blog_admin');
+        }
+
+        $em->remove($article);
+        $em->flush();
+
+        $this->addFlash('success', 'Votre article a bien été supprimé');
+
+        return $this->redirectToRoute('app_blog_admin');
+        
     }
 }

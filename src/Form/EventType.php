@@ -47,7 +47,9 @@ class EventType extends AbstractType
                 ],
                 'widget' => 'single_text'
             ])
-            ->add('isFullDay', CheckboxType::class);
+            ->add('isFullDay', CheckboxType::class, [
+                'required' => false
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

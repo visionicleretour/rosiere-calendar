@@ -3,14 +3,27 @@
 {% block title %}Vos événements{% endblock %}
 
 {% block body %}
+<style>
+    .flex {
+        display: flex;
+        align-content: center;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        margin: 20px 0px;
+    }
+</style>
+
 <div style="background-color: rgba(65, 105, 225, 1); height:90px;">
     {% include 'partials/navbar.html.twig' %}
 </div>
 
+<div class="example-wrapper">
+<div class="flex">
 <h1>Les événements</h1>
 
-<a href="{{path('dashboard_new_event')}}">Créer un événement</a>
+<a href="{{path('dashboard_new_event')}}" class="submit-btn" style="text-decoration: none;">Créer un événement</a>
+</div>
 
 {% include "calendar.html.twig" with {'events': events} %}
-
+</div>
 {% endblock %}

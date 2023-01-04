@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BlogController!{% endblock %}
+
+{% block body %}
+<style>
+    * {
+       box-sizing: border-box; 
+    }
+    .example-wrapper {
+        margin: 1em auto;
+        max-width: 1000px;
+        width: 95%;
+        font: 18px/1.5 sans-serif;
+    }
+
+    .example-wrapper code {
+        background: #F5F5F5;
+        padding: 2px 6px;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    .flex {
+        display: flex;
+        align-content: center;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+</style>
+
+<div style="background-color: rgba(65, 105, 225, 1); height:90px;">
+    {% include 'partials/navbar.html.twig' %}
+</div>
+
+<div class="example-wrapper">
+    <div class="flex">
+    <h1>Gestion des articles</h1>
+
+    <a href="{{ path('app_blog_admin_new') }}" class="submit-btn">Ajouter un article</a>
+    </div>
+    
+
+    <table>
+        <thead>
+            <tr>
+                <td>Nom de l'article</td>
+                <td>Créateur</td>
+                <td>Actions</td>
+            </tr>
+        </thead>
+        <tbody>
+            
+        
+        {% for article in articles %}
+        <tr href='{{ path("app_see_article", {"id": article.id})}}'>
+            
+            <td> {{article.title}} </td>
+            <td>  {{article.author.firstname}} </td>
+            <td>
+                <a href="{{ path('app_blog_admin_edit', {id: article.id}) }}">Modifier</a>
+                <a href="{{ path('app_blog_admin_delete', {id: article.id}) }}">Supprimer</a>
+            </td>
+
+        </td>
+
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
